@@ -1,0 +1,11 @@
+Objetivo : Criar uma aplicação na qual disponibilizamos duas listagens de personagens para o usuario
+firslist = Rick and Morty
+secondlist = Pokemons
+
+IMPORTANTE : cada lista deve ter sua Route e com campo de busca e botoes para trocar paginação
+
+Usuario poderá adicionar um determinado personagem a sua lista de personagens favoritos que será a terceira pagina, uma para pokemons favoritos e outra para rick and Morty
+
+Usuario tambem pode remover o mesmo da lista de favoritos
+
+Exemplo: Se eu clico em um personagem da listagem de  pokémons, ele deverá ser adicionado na lista de favoritos de pokémons ou se eu clicar em um personagem do Rick and Morty, deverá ser adicionado em outra lista de favoritos dos personagens do Rick and Morty.
