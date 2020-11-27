@@ -3,9 +3,10 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { Card } from "../../components/styled-components/Card/index";
 
-const Pokemons = ({ url, addFavorite, favorite }) => {
+const Pokemons = ({ url, addFavorite, favorite, removeFavorite }) => {
   const [infoPokemon, setInfoPokemon] = useState([]);
   const [favo, setFavo] = useState(false);
+  const [teste, setTeste] = [];
 
   useEffect(() => {
     axios.get(`${url}`).then((res) => {
@@ -17,10 +18,10 @@ const Pokemons = ({ url, addFavorite, favorite }) => {
     if (!favo) {
       setFavo(!favo);
       addFavorite(infoPokemon);
-      console.log(favorite);
-      console.log(infoPokemon);
+      console.log(favorite, "add");
     } else {
       setFavo(!favo);
+      removeFavorite(infoPokemon.name);
     }
   };
 

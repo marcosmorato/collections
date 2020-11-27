@@ -2,8 +2,7 @@ import FavoritePokemon from "../FavoritePokemon/index";
 import { motion } from "framer-motion";
 import { InfoPerson } from "../../components/styled-components/InfoPerson";
 const ListFavoritePokemon = ({ favorite }) => {
-  console.log(favorite.name, "favoritelist");
-
+  console.log(favorite);
   return (
     <>
       <motion.div

@@ -3,14 +3,6 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 
 const FavoritePokemon = ({ name, img }) => {
-  const [infoPokemon, setInfoPokemon] = useState([]);
-
-  // useEffect(() => {
-  //   axios.get(`${url}`).then((res) => {
-  //     setInfoPokemon(res.data);
-  //   });
-  // }, [url]);
-
   return (
     <Card>
       <div>{name}</div>

@@ -3,7 +3,14 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { InfoPerson } from "../../components/styled-components/InfoPerson/index";
 
-const ListPokemons = ({ favorite, listPokemon, addFavorite }) => {
+const ListPokemons = ({
+  removeFavorite,
+  favorite,
+  listPokemon,
+  addFavorite,
+  infoPokemon,
+  setInfoPokemon,
+}) => {
   return (
     <>
       <motion.div
@@ -15,6 +22,9 @@ const ListPokemons = ({ favorite, listPokemon, addFavorite }) => {
         <InfoPerson>
           {listPokemon.map((ele, idx, arr) => (
             <Pokemons
+              removeFavorite={removeFavorite}
+              infoPokemon={infoPokemon}
+              setInfoPokemon={setInfoPokemon}
               listPokemon={listPokemon}
               favorite={favorite}
               addFavorite={addFavorite}

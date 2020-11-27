@@ -13,7 +13,6 @@ const GetPokemons = ({ favorite, setFavorite }) => {
   const [limit, setLimit] = useState(20);
   const [search, setSearch] = useState("");
   const [filtred, setFiltred] = useState([]);
-  const [infoPokemon, setInfoPokemon] = useState([]);
 
   useEffect(() => {
     axios
@@ -55,9 +54,10 @@ const GetPokemons = ({ favorite, setFavorite }) => {
 
   const removeFavorite = (name) => {
     let x = favorite?.filter((ele) => ele.name !== name);
-    console.log(x);
+    // console.log(x);
     setFavorite(x);
     // console.log(x);
+    // console.log(name);
   };
 
   return (
@@ -79,8 +79,6 @@ const GetPokemons = ({ favorite, setFavorite }) => {
       </ChangePage>
       {search === "" ? (
         <ListPokemons
-          infoPokemon={infoPokemon}
-          setInfoPokemon={setInfoPokemon}
           favorite={favorite}
           addFavorite={addFavorite}
           listPokemon={listPokemon}
@@ -88,8 +86,6 @@ const GetPokemons = ({ favorite, setFavorite }) => {
         ></ListPokemons>
       ) : (
         <ListPokemons
-          infoPokemon={infoPokemon}
-          setInfoPokemon={setInfoPokemon}
           favorite={favorite}
           addFavorite={addFavorite}
           listPokemon={filtred}
