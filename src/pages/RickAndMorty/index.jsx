@@ -10,6 +10,8 @@ const GetRickAndMorty = () => {
   const [listPerson, setListPerson] = useState([]);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
+  const [search, setSearch] = useState("");
+  const [filtred, setFiltred] = useState([]);
 
   useEffect(() => {
     axios
@@ -21,12 +23,24 @@ const GetRickAndMorty = () => {
       });
   }, [page]);
 
+  const showPerson = (e) => {
+    setSearch(e.target.value);
+    const searchPerson = listPerson.filter((d) => {
+      return d.name.toLowerCase().indexOf(e.target.value.toLowerCase()) !== -1;
+    });
+    setFiltred(searchPerson);
+  };
+
   return (
     <>
       <ChangeApi>
         <Link to="/pokemons">Show pokemons</Link>
       </ChangeApi>
       <ChangePage>
+        <form>
+          <input onChange={showPerson} value={search}></input>
+          <button onClick={showPerson}>search</button>
+        </form>
         <Pagination>
           <div onClick={() => page > 1 && setPage(page - 1)}>
             {`< Previous`}
@@ -36,12 +50,13 @@ const GetRickAndMorty = () => {
             onClick={() => page < totalPages && setPage(page + 1)}
           >{` Next >`}</div>
         </Pagination>
-        <form>
-          <input></input>
-          <button>search</button>
-        </form>
       </ChangePage>
-      <ListRickAndMorty listPerson={listPerson}></ListRickAndMorty>)
+      {search === "" ? (
+        <ListRickAndMorty listPerson={listPerson}></ListRickAndMorty>
+      ) : (
+        <ListRickAndMorty listPerson={filtred}></ListRickAndMorty>
+      )}
+      {/* <ListRickAndMorty listPerson={listPerson}></ListRickAndMorty> */}
     </>
   );
 };

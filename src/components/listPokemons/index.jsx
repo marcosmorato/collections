@@ -1,10 +1,9 @@
 import Pokemons from "../Pokemons";
-
 import { motion } from "framer-motion";
-
+import { useState } from "react";
 import { InfoPerson } from "../../components/styled-components/InfoPerson/index";
 
-const ListPokemons = ({ listPokemon }) => {
+const ListPokemons = ({ favorite, listPokemon, addFavorite }) => {
   return (
     <>
       <motion.div
@@ -15,7 +14,13 @@ const ListPokemons = ({ listPokemon }) => {
       >
         <InfoPerson>
           {listPokemon.map((ele, idx, arr) => (
-            <Pokemons key={idx} url={ele.url}></Pokemons>
+            <Pokemons
+              listPokemon={listPokemon}
+              favorite={favorite}
+              addFavorite={addFavorite}
+              key={idx}
+              url={ele.url}
+            ></Pokemons>
           ))}
         </InfoPerson>
       </motion.div>

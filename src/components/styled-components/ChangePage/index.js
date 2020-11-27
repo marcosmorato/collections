@@ -6,7 +6,7 @@ export const ChangePage = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  width: 99vw;
   height: 10%;
   margin-bottom: 10px;
 `;

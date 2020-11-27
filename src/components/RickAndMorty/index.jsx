@@ -1,9 +1,11 @@
+import { Card } from "../styled-components/Card/index";
+
 const RickAndMorty = ({ name, image, species }) => {
   return (
-    <div>
+    <Card>
+      <div>{name}</div>
       <img src={image} alt={name} />
-      <span>{name}</span>
-    </div>
+    </Card>
   );
 };
 

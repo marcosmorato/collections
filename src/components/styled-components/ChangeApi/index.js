@@ -6,6 +6,18 @@ export const ChangeApi = styled.div`
 
   align-items: center;
   justify-content: center;
-  width: 100%;
-  height: 10%;
+  width: 99vw;
+  height: 15%;
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20%;
+    height: 20%;
+    text-decoration: none;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    color: black;
+    background-color: white;
+  }
 `;
