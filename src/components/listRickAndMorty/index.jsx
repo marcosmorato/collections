@@ -1,10 +1,14 @@
 import RickAndMorty from "../RickAndMorty";
-
 import { motion } from "framer-motion";
-
 import { InfoPerson } from "../../components/styled-components/InfoPerson/index";
 
-const ListRickAndMorty = ({ listPerson }) => {
+const ListRickAndMorty = ({
+  favoriteRick,
+  setFavoriteRick,
+  removeFavorite,
+  listPerson,
+  addFavorite,
+}) => {
   return (
     <>
       <motion.div
@@ -16,9 +20,13 @@ const ListRickAndMorty = ({ listPerson }) => {
         <InfoPerson>
           {listPerson.map((ele, idx, arr) => (
             <RickAndMorty
+              favoriteRick={favoriteRick}
+              setFavoriteRick={setFavoriteRick}
+              removeFavorite={removeFavorite}
+              listPerson={listPerson}
               key={idx}
-              name={ele.name}
-              image={ele.image}
+              person={ele}
+              addFavorite={addFavorite}
             ></RickAndMorty>
           ))}
         </InfoPerson>

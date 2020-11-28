@@ -6,7 +6,7 @@ import { ChangePage } from "../../components/styled-components/ChangePage/index"
 import { ChangeApi } from "../../components/styled-components/ChangeApi/index";
 import { Pagination } from "../../components/styled-components/Pagination/index";
 
-const GetRickAndMorty = () => {
+const GetRickAndMorty = ({ favoriteRick, setFavoriteRick }) => {
   const [listPerson, setListPerson] = useState([]);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
@@ -31,16 +31,29 @@ const GetRickAndMorty = () => {
     setFiltred(searchPerson);
   };
 
+  const addFavorite = (name) => {
+    setFavoriteRick([...favoriteRick, name]);
+    // console.log(favoriteRick);
+  };
+
+  const removeFavorite = (name) => {
+    let x = favoriteRick?.filter((ele) => ele.name !== name);
+    setFavoriteRick(x);
+    // console.log(favoriteRick);
+  };
+
   return (
     <>
       <ChangeApi>
         <Link to="/pokemons">Show pokemons</Link>
+        <input
+          onChange={showPerson}
+          value={search}
+          placeholder="Search Bar"
+        ></input>
+        <Link to="/favoriteRick"> Favorites</Link>
       </ChangeApi>
       <ChangePage>
-        <form>
-          <input onChange={showPerson} value={search}></input>
-          <button onClick={showPerson}>search</button>
-        </form>
         <Pagination>
           <div onClick={() => page > 1 && setPage(page - 1)}>
             {`< Previous`}
@@ -52,9 +65,21 @@ const GetRickAndMorty = () => {
         </Pagination>
       </ChangePage>
       {search === "" ? (
-        <ListRickAndMorty listPerson={listPerson}></ListRickAndMorty>
+        <ListRickAndMorty
+          addFavorite={addFavorite}
+          favoriteRick={favoriteRick}
+          setFavoriteRick={setFavoriteRick}
+          removeFavorite={removeFavorite}
+          listPerson={listPerson}
+        ></ListRickAndMorty>
       ) : (
-        <ListRickAndMorty listPerson={filtred}></ListRickAndMorty>
+        <ListRickAndMorty
+          addFavorite={addFavorite}
+          favoriteRick={favoriteRick}
+          setFavoriteRick={setFavoriteRick}
+          removeFavorite={removeFavorite}
+          listPerson={filtred}
+        ></ListRickAndMorty>
       )}
       {/* <ListRickAndMorty listPerson={listPerson}></ListRickAndMorty> */}
     </>

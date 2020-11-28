@@ -4,10 +4,12 @@ import { useState } from "react";
 import Pokemons from "./pages/Pokemons";
 import RickAndMorty from "./pages/RickAndMorty";
 import Favorite from "./pages/Favorite";
+import FavoriteRick from "./pages/FavoriteRickAndMorty";
 import { AnimatePresence } from "framer-motion";
 
 function App() {
   const [favorite, setFavorite] = useState([]);
+  const [favoriteRick, setFavoriteRick] = useState([]);
   return (
     <AnimatePresence>
       <Switch>
@@ -17,8 +19,14 @@ function App() {
         <Route path="/pokemons">
           <Pokemons favorite={favorite} setFavorite={setFavorite}></Pokemons>
         </Route>
+        <Route path="/favoriteRick">
+          <FavoriteRick favoriteRick={favoriteRick}></FavoriteRick>
+        </Route>
         <Route path="/">
-          <RickAndMorty></RickAndMorty>
+          <RickAndMorty
+            favoriteRick={favoriteRick}
+            setFavoriteRick={setFavoriteRick}
+          ></RickAndMorty>
         </Route>
       </Switch>
     </AnimatePresence>

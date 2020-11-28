@@ -1,9 +1,8 @@
-import FavoritePokemon from "../FavoritePokemon/index";
+import FavoriteRickAndMorty from "../FavoriteRickAndMorty/index";
 import { motion } from "framer-motion";
 import { InfoPerson } from "../../components/styled-components/InfoPerson";
 
-const ListFavoritePokemon = ({ favorite }) => {
-  console.log(favorite);
+const ListFavoriteRickAndMorty = ({ favoriteRick }) => {
   return (
     <>
       <motion.div
@@ -13,12 +12,12 @@ const ListFavoritePokemon = ({ favorite }) => {
         transition={{ duration: 1 }}
       >
         <InfoPerson>
-          {favorite.map((ele, idx, arr) => (
-            <FavoritePokemon
+          {favoriteRick.map((ele, idx, arr) => (
+            <FavoriteRickAndMorty
               key={idx}
               name={ele.name}
-              img={ele.sprites?.other["official-artwork"]["front_default"]}
-            ></FavoritePokemon>
+              image={ele.image}
+            ></FavoriteRickAndMorty>
           ))}
         </InfoPerson>
       </motion.div>
@@ -26,4 +25,4 @@ const ListFavoritePokemon = ({ favorite }) => {
   );
 };
 
-export default ListFavoritePokemon;
+export default ListFavoriteRickAndMorty;

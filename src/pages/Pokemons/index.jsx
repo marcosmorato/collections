@@ -40,7 +40,6 @@ const GetPokemons = ({ favorite, setFavorite }) => {
   };
 
   const showPokemon = (e) => {
-    // fazer um novo axios que passe o filter por todo get do API do Pokemon
     setSearch(e.target.value);
     const searchPokemons = listPokemon.filter((d) => {
       return d.name.toLowerCase().indexOf(e.target.value.toLowerCase()) !== -1;
@@ -67,10 +66,7 @@ const GetPokemons = ({ favorite, setFavorite }) => {
         <Link to="/favorite"> Favorites </Link>
       </ChangeApi>
       <ChangePage>
-        <form>
-          <input onChange={showPokemon} value={search}></input>
-          <button onClick={showPokemon}>search</button>
-        </form>
+        <input onChange={showPokemon} value={search}></input>
         <Pagination>
           <div onClick={Preview}>{`< Previous`}</div>
           {page}

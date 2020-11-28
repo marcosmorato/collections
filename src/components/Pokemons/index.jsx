@@ -1,4 +1,3 @@
-// voltar infoPokemon até pages e manipular la a condição de addFavorite
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
@@ -13,17 +12,16 @@ const Pokemons = ({ url, addFavorite, favorite, removeFavorite }) => {
     axios.get(`${url}`).then((res) => {
       setInfoPokemon(res.data);
     });
-    // console.log(location.pathname === "/pokemons");
   }, [url]);
 
   useEffect(() => {
     if (location.pathname === "/pokemons") {
-      // console.log(favorite.length);
-
       const find = favorite?.find((e) => e.name === infoPokemon.name);
       if (find !== undefined) {
         console.log(find, "funciona?");
         setFavo(true);
+      } else {
+        setFavo(false);
       }
     }
   }, [infoPokemon]);
@@ -32,7 +30,7 @@ const Pokemons = ({ url, addFavorite, favorite, removeFavorite }) => {
     if (!favo) {
       setFavo(!favo);
       addFavorite(infoPokemon);
-      console.log(favorite, "add");
+      // console.log(favorite, "add");
     } else {
       setFavo(!favo);
       removeFavorite(infoPokemon.name);
