@@ -5,6 +5,8 @@ import ListRickAndMorty from "../../components/listRickAndMorty/index";
 import { ChangePage } from "../../components/styled-components/ChangePage/index";
 import { ChangeApi } from "../../components/styled-components/ChangeApi/index";
 import { Pagination } from "../../components/styled-components/Pagination/index";
+import { Logo, LogoRick } from "../../components/styled-components/Logo";
+import Img from "../../image/rickandmorty_logo.png";
 
 const GetRickAndMorty = ({ favoriteRick, setFavoriteRick }) => {
   const [listPerson, setListPerson] = useState([]);
@@ -53,6 +55,9 @@ const GetRickAndMorty = ({ favoriteRick, setFavoriteRick }) => {
         ></input>
         <Link to="/favoriteRick"> Favorites</Link>
       </ChangeApi>
+      <LogoRick>
+        <img src={Img} />
+      </LogoRick>
       <ChangePage>
         <Pagination>
           <div onClick={() => page > 1 && setPage(page - 1)}>

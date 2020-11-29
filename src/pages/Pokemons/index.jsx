@@ -5,6 +5,9 @@ import ListPokemons from "../../components/listPokemons/index";
 import { ChangePage } from "../../components/styled-components/ChangePage/index";
 import { ChangeApi } from "../../components/styled-components/ChangeApi/index";
 import { Pagination } from "../../components/styled-components/Pagination/index";
+import { Logo } from "../../components/styled-components/Logo";
+import Img from "../../image/pokemon_logo.png";
+import { motion } from "framer-motion";
 
 const GetPokemons = ({ favorite, setFavorite }) => {
   const [listPokemon, setListPokemon] = useState([]);
@@ -63,16 +66,26 @@ const GetPokemons = ({ favorite, setFavorite }) => {
     <>
       <ChangeApi>
         <Link to="/"> show Rick And Morty </Link>
+        <input
+          onChange={showPokemon}
+          value={search}
+          placeholder="Search Bar"
+        ></input>
         <Link to="/favorite"> Favorites </Link>
       </ChangeApi>
+      <Logo>
+        <motion.div whileHover={{ scale: 1.2 }}>
+          <img src={Img} />
+        </motion.div>
+      </Logo>
       <ChangePage>
-        <input onChange={showPokemon} value={search}></input>
         <Pagination>
           <div onClick={Preview}>{`< Previous`}</div>
           {page}
           <div onClick={Next}>{` Next >`}</div>
         </Pagination>
       </ChangePage>
+
       {search === "" ? (
         <ListPokemons
           favorite={favorite}

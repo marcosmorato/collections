@@ -1,13 +1,16 @@
-import { Card } from "../styled-components/Card/index";
-import axios from "axios";
-import { useState, useEffect } from "react";
+import { Card, Img, NameFav } from "../styled-components/Card/index";
+import { motion } from "framer-motion";
 
 const FavoriteRickAndMorty = ({ name, image }) => {
   return (
-    <Card>
-      <div>{name}</div>
-      <img src={image} />
-    </Card>
+    <motion.div whileHover={{ scale: 1.2 }}>
+      <Card>
+        <NameFav>{name}</NameFav>
+        <Img>
+          <img src={image} />
+        </Img>
+      </Card>
+    </motion.div>
   );
 };
 

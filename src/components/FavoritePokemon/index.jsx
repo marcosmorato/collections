@@ -1,13 +1,18 @@
-import { Card } from "../styled-components/Card";
-import axios from "axios";
-import { useState, useEffect } from "react";
+import { Card, Img, NameFav } from "../styled-components/Card";
+import { motion } from "framer-motion";
 
 const FavoritePokemon = ({ name, img }) => {
   return (
-    <Card>
-      <div>{name}</div>
-      <img src={img} />
-    </Card>
+    <motion.div whileHover={{ scale: 1.2 }}>
+      <Card>
+        <NameFav>
+          <div>{name}</div>
+        </NameFav>
+        <Img>
+          <img src={img} />
+        </Img>
+      </Card>
+    </motion.div>
   );
 };
 

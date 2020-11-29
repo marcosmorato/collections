@@ -5,7 +5,7 @@ export const ChangeApi = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 99vw;
+  width: 100%;
   height: 10%;
   a {
     display: flex;

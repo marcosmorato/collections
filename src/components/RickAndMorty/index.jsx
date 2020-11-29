@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import axios from "axios";
-import { Card } from "../styled-components/Card/index";
+import { Card, Img, Name } from "../styled-components/Card/index";
+import { motion } from "framer-motion";
 
 const RickAndMorty = ({
   favoriteRick,
@@ -40,19 +40,24 @@ const RickAndMorty = ({
   };
 
   return (
-    <Card>
-      <div>
-        {person.name}
-        <button onClick={conditionAddFavorite}>
-          {favo === false ? (
-            <img src="https://img.icons8.com/android/48/000000/star.png" />
-          ) : (
-            <img src="https://img.icons8.com/fluent/48/000000/star.png" />
-          )}
-        </button>
-      </div>
-      <img src={person.image} alt={person.name} />
-    </Card>
+    <motion.div whileHover={{ scale: 1.2 }}>
+      <Card>
+        <Name>
+          {person.name}
+
+          <button onClick={conditionAddFavorite}>
+            {favo === false ? (
+              <img src="https://img.icons8.com/plasticine/100/000000/like--v2.png" />
+            ) : (
+              <img src="https://img.icons8.com/plasticine/400/000000/like--v1.png" />
+            )}
+          </button>
+        </Name>
+        <Img>
+          <img src={person.image} alt={person.name} />
+        </Img>
+      </Card>
+    </motion.div>
   );
 };
 
