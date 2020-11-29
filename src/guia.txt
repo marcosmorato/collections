@@ -9,3 +9,7 @@ Usuario poderá adicionar um determinado personagem a sua lista de personagens f
 Usuario tambem pode remover o mesmo da lista de favoritos
 
 Exemplo: Se eu clico em um personagem da listagem de  pokémons, ele deverá ser adicionado na lista de favoritos de pokémons ou se eu clicar em um personagem do Rick and Morty, deverá ser adicionado em outra lista de favoritos dos personagens do Rick and Morty.
+
+// tirar bug de scale criando uma div transparente em volta do card para quando o scale funcionar a card nao varar a div e a div continuar fixa assim nao alterando o tamanho da personagem
+
+// criar um state que quando o card for clickado muda o que aparece nele assim aparecendo status e se o card for clicado novamente volta a imagem e o nome, usar framer motion para fazer a transição das divs ficarem mais suaves

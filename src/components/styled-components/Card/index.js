@@ -1,5 +1,14 @@
 import styled from "styled-components";
 
+export const ScaleCard = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 230px;
+  height: 230px;
+  margin: 20px;
+`;
+
 export const Card = styled.div`
   display: flex;
   flex-direction: column;
@@ -7,7 +16,7 @@ export const Card = styled.div`
   align-items: center;
   border: 1px solid black;
   border-radius: 10px;
-  margin: 20px;
+
   background-color: white;
   width: 200px;
   height: 200px;

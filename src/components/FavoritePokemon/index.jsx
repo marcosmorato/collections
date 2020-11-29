@@ -1,18 +1,20 @@
-import { Card, Img, NameFav } from "../styled-components/Card";
+import { Card, Img, NameFav, ScaleCard } from "../styled-components/Card";
 import { motion } from "framer-motion";
 
 const FavoritePokemon = ({ name, img }) => {
   return (
-    <motion.div whileHover={{ scale: 1.2 }}>
-      <Card>
-        <NameFav>
-          <div>{name}</div>
-        </NameFav>
-        <Img>
-          <img src={img} />
-        </Img>
-      </Card>
-    </motion.div>
+    <ScaleCard>
+      <motion.div whileHover={{ scale: 1.2 }}>
+        <Card>
+          <NameFav>
+            <div>{name}</div>
+          </NameFav>
+          <Img>
+            <img src={img} />
+          </Img>
+        </Card>
+      </motion.div>
+    </ScaleCard>
   );
 };
 

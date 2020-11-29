@@ -3,7 +3,6 @@ import { ChangeApi } from "../../components/styled-components/ChangeApi";
 import ListFavoriteRickAndMorty from "../../components/listFavoriteRickAndMorty/index";
 
 const FavoriteRickAndMorty = ({ favoriteRick }) => {
-  console.log(favoriteRick);
   return (
     <>
       <ChangeApi>

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { Card, Img, Name } from "../styled-components/Card/index";
+import { Card, Img, Name, ScaleCard } from "../styled-components/Card/index";
 import { motion } from "framer-motion";
 
 const RickAndMorty = ({
@@ -40,24 +40,26 @@ const RickAndMorty = ({
   };
 
   return (
-    <motion.div whileHover={{ scale: 1.2 }}>
-      <Card>
-        <Name>
-          {person.name}
+    <ScaleCard>
+      <motion.div whileHover={{ scale: 1.2 }}>
+        <Card>
+          <Name>
+            {person.name}
 
-          <button onClick={conditionAddFavorite}>
-            {favo === false ? (
-              <img src="https://img.icons8.com/plasticine/100/000000/like--v2.png" />
-            ) : (
-              <img src="https://img.icons8.com/plasticine/400/000000/like--v1.png" />
-            )}
-          </button>
-        </Name>
-        <Img>
-          <img src={person.image} alt={person.name} />
-        </Img>
-      </Card>
-    </motion.div>
+            <button onClick={conditionAddFavorite}>
+              {favo === false ? (
+                <img src="https://img.icons8.com/plasticine/100/000000/like--v2.png" />
+              ) : (
+                <img src="https://img.icons8.com/plasticine/400/000000/like--v1.png" />
+              )}
+            </button>
+          </Name>
+          <Img>
+            <img src={person.image} alt={person.name} />
+          </Img>
+        </Card>
+      </motion.div>
+    </ScaleCard>
   );
 };
 

@@ -3,7 +3,6 @@ import { ChangeApi } from "../../components/styled-components/ChangeApi";
 import ListFavoritePokemon from "../../components/listFavoritePokemon/index";
 
 const Favorite = ({ favorite }) => {
-  // console.log(favorite);
   return (
     <>
       <ChangeApi>
