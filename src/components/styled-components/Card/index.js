@@ -20,16 +20,30 @@ export const Card = styled.div`
   background-color: white;
   width: 200px;
   height: 200px;
+  :hover {
+    background: linear-gradient(
+      270deg,
+      rgba(30, 255, 0, 0.555),
+      rgba(255, 0, 0, 0.555)
+    );
+    button {
+      background: linear-gradient(
+        270deg,
+        rgba(255, 0, 0, 0.555),
+        rgba(30, 255, 0, 0.555)
+      );
+    }
+  }
 `;
 
 export const Name = styled.div`
-  /* font-size: 20px; */
   width: 80%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   font-size: 80%;
+  text-shadow: 1px 1px 1px white;
   button {
     border: black 1px solid;
     border-radius: 5px;
@@ -66,7 +80,6 @@ export const Img = styled.div`
 `;
 
 export const NameFav = styled.div`
-  /* font-size: 20px; */
   width: 80%;
   display: flex;
   justify-content: center;

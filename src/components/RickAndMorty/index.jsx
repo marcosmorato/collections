@@ -5,15 +5,11 @@ import { motion } from "framer-motion";
 
 const RickAndMorty = ({
   favoriteRick,
-  setFavoriteRick,
   removeFavorite,
-  listPerson,
   person,
-  species,
   addFavorite,
 }) => {
-  const [infoRick, setInfoRick] = useState([]);
-  const [favo, setFavo] = useState(false);
+  const [fav, setFav] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -21,19 +17,19 @@ const RickAndMorty = ({
       const find = favoriteRick?.find((e) => e.name === person.name);
       if (find !== undefined) {
         console.log(find, "funcionando");
-        setFavo(true);
+        setFav(true);
       } else {
-        setFavo(false);
+        setFav(false);
       }
     }
   }, [person]);
 
   const conditionAddFavorite = () => {
-    if (!favo) {
-      setFavo(!favo);
+    if (!fav) {
+      setFav(!fav);
       addFavorite(person);
     } else {
-      setFavo(!favo);
+      setFav(!fav);
       removeFavorite(person.name);
       // console.log(favoriteRick, "removendo");
     }
@@ -45,9 +41,8 @@ const RickAndMorty = ({
         <Card>
           <Name>
             {person.name}
-
             <button onClick={conditionAddFavorite}>
-              {favo === false ? (
+              {fav === false ? (
                 <img src="https://img.icons8.com/plasticine/100/000000/like--v2.png" />
               ) : (
                 <img src="https://img.icons8.com/plasticine/400/000000/like--v1.png" />

@@ -16,6 +16,7 @@ const GetPokemons = ({ favorite, setFavorite }) => {
   const [limit, setLimit] = useState(20);
   const [search, setSearch] = useState("");
   const [filtred, setFiltred] = useState([]);
+  const [pagination, setPagination] = useState(1);
 
   useEffect(() => {
     axios
@@ -29,13 +30,15 @@ const GetPokemons = ({ favorite, setFavorite }) => {
     if (page > 0) {
       setPage(page - 20);
       setLimit(20);
+      setPagination(pagination - 1);
     }
   };
 
   const Next = () => {
     if (page < totalPages * 20) {
       setPage(page + 20);
-      console.log(page);
+
+      setPagination(pagination + 1);
     }
     if (page === (totalPages - 1) * 20) {
       setLimit(11);
@@ -65,13 +68,17 @@ const GetPokemons = ({ favorite, setFavorite }) => {
   return (
     <>
       <ChangeApi>
-        <Link to="/"> show Rick And Morty </Link>
+        <Link to="/">
+          <span>show Rick And Morty</span>
+        </Link>
         <input
           onChange={showPokemon}
           value={search}
           placeholder="Search Bar"
         ></input>
-        <Link to="/favorite"> Favorites </Link>
+        <Link to="/favorite">
+          <span> Favorites </span>
+        </Link>
       </ChangeApi>
       <Logo>
         <motion.div whileHover={{ scale: 1.2 }}>
@@ -81,7 +88,9 @@ const GetPokemons = ({ favorite, setFavorite }) => {
       <ChangePage>
         <Pagination>
           <div onClick={Preview}>{`< Previous`}</div>
-          {page}
+          <h2 style={{ color: "white", textShadow: "1px 1px 1px black" }}>
+            {pagination}
+          </h2>
           <div onClick={Next}>{` Next >`}</div>
         </Pagination>
       </ChangePage>

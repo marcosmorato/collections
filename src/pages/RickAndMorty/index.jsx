@@ -5,7 +5,7 @@ import ListRickAndMorty from "../../components/listRickAndMorty/index";
 import { ChangePage } from "../../components/styled-components/ChangePage/index";
 import { ChangeApi } from "../../components/styled-components/ChangeApi/index";
 import { Pagination } from "../../components/styled-components/Pagination/index";
-import { Logo, LogoRick } from "../../components/styled-components/Logo";
+import { LogoRick } from "../../components/styled-components/Logo";
 import Img from "../../image/rickandmorty_logo.png";
 
 const GetRickAndMorty = ({ favoriteRick, setFavoriteRick }) => {
@@ -47,13 +47,17 @@ const GetRickAndMorty = ({ favoriteRick, setFavoriteRick }) => {
   return (
     <>
       <ChangeApi>
-        <Link to="/pokemons">Show pokemons</Link>
+        <Link to="/pokemons">
+          <span>Show pokemons</span>
+        </Link>
         <input
           onChange={showPerson}
           value={search}
           placeholder="Search Bar"
         ></input>
-        <Link to="/favoriteRick"> Favorites</Link>
+        <Link to="/favoriteRick">
+          <span> Favorites</span>
+        </Link>
       </ChangeApi>
       <LogoRick>
         <img src={Img} />
@@ -63,7 +67,9 @@ const GetRickAndMorty = ({ favoriteRick, setFavoriteRick }) => {
           <div onClick={() => page > 1 && setPage(page - 1)}>
             {`< Previous`}
           </div>
-          {page}
+          <h2 style={{ color: "white", textShadow: "1px 1px 1px black" }}>
+            {page}
+          </h2>
           <div
             onClick={() => page < totalPages && setPage(page + 1)}
           >{` Next >`}</div>

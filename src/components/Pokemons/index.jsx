@@ -11,7 +11,7 @@ import { motion } from "framer-motion";
 
 const Pokemons = ({ url, addFavorite, favorite, removeFavorite }) => {
   const [infoPokemon, setInfoPokemon] = useState([]);
-  const [favo, setFavo] = useState(false);
+  const [fav, setFav] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -25,20 +25,20 @@ const Pokemons = ({ url, addFavorite, favorite, removeFavorite }) => {
       const find = favorite?.find((e) => e.name === infoPokemon.name);
       if (find !== undefined) {
         console.log(find, "funciona?");
-        setFavo(true);
+        setFav(true);
       } else {
-        setFavo(false);
+        setFav(false);
       }
     }
   }, [infoPokemon]);
 
   const conditionAddFavorite = () => {
-    if (!favo) {
-      setFavo(!favo);
+    if (!fav) {
+      setFav(!fav);
       addFavorite(infoPokemon);
       // console.log(favorite, "add");
     } else {
-      setFavo(!favo);
+      setFav(!fav);
       removeFavorite(infoPokemon.name);
     }
   };
@@ -50,7 +50,7 @@ const Pokemons = ({ url, addFavorite, favorite, removeFavorite }) => {
           <Name>
             {infoPokemon.name}
             <button onClick={conditionAddFavorite}>
-              {favo === false ? (
+              {fav === false ? (
                 <img src="https://img.icons8.com/android/48/000000/star.png" />
               ) : (
                 <img src="https://img.icons8.com/fluent/48/000000/star.png" />
